@@ -15,7 +15,7 @@ var commentRoutes = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"),
 	indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb+srv://exUser:pokemon2809!@cluster0-yeisr.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://exUser:exUserPassword@cluster0-yeisr.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
