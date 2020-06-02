@@ -15,15 +15,16 @@ var commentRoutes = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"),
 	indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb+srv://exUser:exUserPassword@cluster0-yeisr.mongodb.net/test?retryWrites=true&w=majority", {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useUnifiedTopology: true
-}).then(() => {
-	console.log("Connected to DB.");
-}).catch(err => {
-	console.log("ERROR: ", err.message);
-});
+mongoose.connect(DATABASEURL);
+// mongoose.connect("mongodb+srv://exUser:exUserPassword@cluster0-yeisr.mongodb.net/test?retryWrites=true&w=majority", {
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true,
+// 	useUnifiedTopology: true
+// }).then(() => {
+// 	console.log("Connected to DB.");
+// }).catch(err => {
+// 	console.log("ERROR: ", err.message);
+// });
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,7 +32,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 //seedDB();
 
-//passport config
+// passport config
 app.use(require("express-session")({
 	secret: "this is a web development class",
 	resave: false,
